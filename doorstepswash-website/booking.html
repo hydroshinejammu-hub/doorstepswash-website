@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Book a Wash — DoorstepsWash Jammu</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+<style>
+.consent-box{background:#F8FAFB;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:12px 14px;margin:4px 0 16px}
+.consent-box .cb-title{font-size:.78rem;font-weight:800;color:var(--dark);margin-bottom:6px}
+.consent-box p{font-size:.72rem;color:var(--gray);line-height:1.65;margin-bottom:10px}
+.consent-box a{color:var(--teal);font-weight:700}
+.consent-check{display:flex;gap:9px;align-items:flex-start;font-size:.74rem;font-weight:600;color:var(--dark);line-height:1.55;cursor:pointer}
+.consent-check input{margin-top:3px;width:17px;height:17px;flex-shrink:0;accent-color:var(--teal)}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <button class="back-btn" onclick="location.href='index.html'">←</button>
+  <div class="header-logo desktop-only-logo" style="display:none"><div class="logo-ic">💧</div>DOORSTEPS<span class="shine">WASH</span> <span style="font-size:.65em;font-weight:600;opacity:.85">JAMMU</span></div>
+  <div class="header-title">Book a Wash</div>
+  <a href="tel:9469793349" class="call-btn">📞 Call</a>
+</header>
+
+<!-- BOOKING FORM -->
+<div class="book-box rv" id="booking" style="margin-top:16px">
+  <div class="sec-ey">Book Online</div>
+  <h2>Schedule Your Wash 🚗</h2>
+
+  <p style="font-size:.78rem;color:var(--gray);margin-bottom:16px;line-height:1.6">💬 Fill in the details below — your booking request opens in <b>WhatsApp</b> and is confirmed once you press Send. No account or login needed.</p>
+
+  <div class="fg"><label>Full Name *</label><input class="fc" type="text" id="f_name" placeholder="e.g. Rahul Sharma" autocomplete="name"><span class="ferr" id="e_name">Please enter your name</span></div>
+  <div class="fg"><label>Mobile Number *</label><input class="fc" type="tel" id="f_phone" placeholder="+91 XXXXX XXXXX" maxlength="15"><span class="ferr" id="e_phone">Enter a valid number</span></div>
+  <div class="fg"><label>Service *</label>
+    <select class="fc" id="f_service" onchange="updateTierOptions()">
+      <option value="">— Choose service —</option>
+      <option value="Hatchback Wash – ₹299 to ₹399">Hatchback Wash – ₹299 to ₹399</option>
+      <option value="Sedan Wash – ₹399 to ₹499">Sedan Wash – ₹399 to ₹499</option>
+      <option value="SUV / MUV Wash – ₹499 to ₹699">SUV / MUV Wash – ₹499 to ₹699</option>
+      <option value="Bike / Scooter Wash – ₹250">Bike / Scooter Wash – ₹250</option>
+      <option value="Fabric / Leather Care – ₹1199">Fabric / Leather Care – ₹1199</option>
+      <option value="Premium Detailing Package – ₹1499">Premium Detailing Package – ₹1499</option>
+    </select>
+    <span class="ferr" id="e_service">Please select a service</span>
+  </div>
+  <div class="fg" id="f_tier_group" style="display:none">
+    <label>Which package? *</label>
+    <select class="fc" id="f_tier"><option value="">— Select —</option></select>
+    <span class="ferr" id="e_tier">Please select a package</span>
+  </div>
+  <div class="frow2">
+    <div class="fg"><label>Date *</label><input class="fc" type="date" id="f_date"><span class="ferr" id="e_date">Select date</span></div>
+    <div class="fg"><label>Time *</label>
+      <select class="fc" id="f_time"><option value="">— Slot —</option><option>8–9 AM</option><option>9–10 AM</option><option>10–11 AM</option><option>11–12 PM</option><option>2–3 PM</option><option>3–4 PM</option><option>4–5 PM</option><option>5–6 PM</option></select>
+      <span class="ferr" id="e_time">Select slot</span>
+    </div>
+  </div>
+  <div class="fg"><label>Add-On (optional) — select any that apply</label>
+    <div class="addon-check-group" id="f_addon_group">
+      <label class="addon-check"><input type="checkbox" value="Ceramic Foam Wash – ₹199"> Ceramic Foam Wash – ₹199</label>
+      <label class="addon-check"><input type="checkbox" value="Under Body Foam Wash – ₹149"> Under Body Foam Wash – ₹149</label>
+      <label class="addon-check"><input type="checkbox" value="Glass Coating (All Glass) – ₹999"> Glass Coating (All Glass) – ₹999</label>
+      <label class="addon-check"><input type="checkbox" value="Front & Back Glass Coating – ₹699"> Front & Back Glass Coating – ₹699</label>
+      <label class="addon-check"><input type="checkbox" value="Interior Detailing – ₹499"> Interior Detailing – ₹499</label>
+      <label class="addon-check"><input type="checkbox" value="Spray Wax – ₹99"> Spray Wax – ₹99</label>
+      <label class="addon-check"><input type="checkbox" value="Ceramic Coating – ₹99"> Ceramic Coating – ₹99</label>
+      <label class="addon-check"><input type="checkbox" value="Leather Conditioning – ₹299"> Leather Conditioning – ₹299</label>
+      <label class="addon-check"><input type="checkbox" value="Engine Degreasing – ₹349"> Engine Degreasing – ₹349</label>
+    </div>
+  </div>
+  <div class="fg"><label>Your Address *</label><textarea class="fc" id="f_address" placeholder="House/flat no., street, mohalla, landmark, Jammu..."></textarea><span class="ferr" id="e_address">Please enter your address</span></div>
+  <div class="fg"><label>Special Instructions (optional)</label><textarea class="fc" id="f_notes" placeholder="e.g. heavy mud, pet hair, park at gate 2..." style="min-height:64px"></textarea></div>
+
+  <div class="consent-box">
+    <div class="cb-title">🔐 How we use your details</div>
+    <p>We collect your <b>name, phone number and address</b> only to confirm and complete this booking. Your details are sent to us through <b>WhatsApp</b> — this website does not store them. You can withdraw consent, or ask us to correct or delete your data, anytime on WhatsApp <b>+91 94697 93349</b>. Read our <a href="privacy.html">Privacy Policy</a>.</p>
+    <label class="consent-check"><input type="checkbox" id="f_consent"><span>I am 18 years or older and I agree to share these details with DoorstepsWash Jammu for this booking. *</span></label>
+    <span class="ferr" id="e_consent">Please tick the box to continue</span>
+  </div>
+
+  <button class="sub-btn" id="subBtn" onclick="bookNow()"><span id="subTxt">💬 Send Booking on WhatsApp</span></button>
+  <div class="toast" id="toastMsg"></div>
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <div class="bn-item" id="nav-home" onclick="location.href='index.html'"><div class="bn-ic">🏠</div><div class="bn-lbl">Home</div></div>
+  <div class="bn-item" id="nav-services" onclick="location.href='index.html#services'"><div class="bn-ic">🚗</div><div class="bn-lbl">Services</div></div>
+  <div class="bn-item active" id="nav-book" onclick="location.href='booking.html'"><div class="bn-ic">📅</div><div class="bn-lbl">Book</div></div>
+  <div class="bn-item" id="nav-call" onclick="location.href='tel:9469793349'"><div class="bn-ic">📞</div><div class="bn-lbl">Call</div></div>
+  <div class="bn-item" id="nav-whatsapp" onclick="window.open('https://wa.me/919469793349','_blank')"><div class="bn-ic">💬</div><div class="bn-lbl">WhatsApp</div></div>
+</nav>
+
+<script src="images.js"></script>
+<script>window.HS_PAGE="booking";</script>
+<script src="app.js"></script>
+<script>
+  prefillBookingForm();
+</script>
+</body>
+</html>
