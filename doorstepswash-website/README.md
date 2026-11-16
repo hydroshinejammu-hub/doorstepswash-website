@@ -7,8 +7,11 @@ Static website for DoorstepsWash Jammu (doorstep car & bike wash).
 - `booking.html` — booking form (WhatsApp handoff)
 - `privacy.html`, `terms.html` — legal pages (DPDP Act, 2023 compliant)
 - `mgr-413df040.html` — admin panel (pricing only), talks to the
-  [doorstepswash-backend](https://github.com/) Cloudflare Worker
+  doorstepswash-api Cloudflare Worker
 - `app.js`, `app.css`, `images.js` — site logic, styles, and embedded images
+
+## Backend
+Points to: `https://doorstepswash-api.hydroshinejammu.workers.dev`
 
 ## Deploy
 Static files — deploy as-is to Cloudflare Pages, Netlify, GitHub Pages, etc.

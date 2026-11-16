@@ -3,7 +3,7 @@ const WA = "919469793349";
 
 // ⚠️ SET THIS after deploying your Cloudflare Worker:
 // e.g. "https://doorstepswash-api.yourname.workers.dev"
-const BACKEND_URL = " https://doorstepswash-api.hydroshinejammu.workers.dev";
+const BACKEND_URL = "https://doorstepswash-api.hydroshinejammu.workers.dev";
 const BACKEND_CONFIGURED = true;
 
 // ───────────── LEGACY CLEANUP ─────────────
